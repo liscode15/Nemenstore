@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const message = `Hai kak, saya mau order *${productName}* dengan detail berikut:%0A%0A- Ukuran: ${selectedSize}%0A- Warna: ${selectedColor}%0A%0ATerima kasih.`;
 
             // Nomor WhatsApp Anda (ganti dengan nomor Anda)
-            const phoneNumber = '087815884094'; 
+            const phoneNumber = '6287815884094'; 
 
             // URL untuk membuka WhatsApp dengan pesan otomatis
             const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
