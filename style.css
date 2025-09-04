@@ -1,0 +1,82 @@
+/* Custom CSS untuk Nemenstore */
+
+/* Variabel Kustom */
+:root {
+    --primary-color: #3498db; /* Biru cerah untuk aksen */
+    --text-color: #495057;
+    --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: var(--text-color);
+    background-color: #f8f9fa; /* Latar belakang abu-abu muda */
+}
+
+/* Penyesuaian Navigasi */
+.nav-link {
+    font-weight: 500;
+}
+
+/* Kartu Produk */
+.product-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1) !important;
+}
+
+.image-gallery {
+    position: relative;
+    overflow: hidden;
+}
+
+.product-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.product-image.active {
+    display: block;
+    opacity: 1;
+}
+
+/* Opsi Warna */
+.swatch {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.swatch:hover {
+    transform: scale(1.1);
+}
+
+.swatch.active {
+    border-color: var(--primary-color) !important;
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.5);
+}
+
+.swatch[data-color="black"] { background-color: #333; }
+.swatch[data-color="khaki"] { background-color: #c3b091; }
+.swatch[data-color="navy"] { background-color: #000080; }
+.swatch[data-color="olive"] { background-color: #808000; }
+.swatch[data-color="grey"] { background-color: #808080; }
+
+/* Tombol */
+.add-to-cart {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.add-to-cart:hover {
+    background-color: #2980b9;
+    border-color: #2980b9;
+}
