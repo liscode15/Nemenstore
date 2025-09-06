@@ -1,56 +1,78 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const products = document.querySelectorAll('.product-card');
-
-    products.forEach(product => {
-        const productId = product.dataset.productId;
-        const colorCount = parseInt(product.dataset.colors, 10);
-        const imageGallery = product.querySelector('.image-gallery');
-        const colorSwatches = product.querySelectorAll('.swatch');
-
-        // Fungsi untuk mengelola galeri gambar
-        function generateImages(count) {
-            imageGallery.innerHTML = '';
-            for (let i = 1; i <= count; i++) {
-                const img = document.createElement('img');
-                img.classList.add('product-image');
-                img.src = `https://via.placeholder.com/350x350/${productId}-${i}`; // Placeholder
-                img.alt = `${productId} - Gambar ${i}`;
-                if (i === 1) {
-                    img.classList.add('active');
-                }
-                imageGallery.appendChild(img);
-            }
+document.addEventListener('DOMContentLoaded', function() {
+    const products = [
+        {
+            id: 'carouselCargoPanjang',
+            name: 'Celana Cargo Panjang',
+            colors: 5
+        },
+        {
+            id: 'carouselCargoPendek',
+            name: 'Celana Cargo Pendek',
+            colors: 5
+        },
+        {
+            id: 'carouselChinosPanjang',
+            name: 'Celana Chinos Panjang',
+            colors: 5
+        },
+        {
+            id: 'carouselChinosPendek',
+            name: 'Celana Chinos Pendek',
+            colors: 5
+        },
+        {
+            id: 'carouselAnkle',
+            name: 'Celana Ankle',
+            colors: 4
+        },
+        {
+            id: 'carouselJudbrey',
+            name: 'Celana Judbrey',
+            colors: 9
         }
+    ];
 
-        // Jalankan fungsi untuk setiap produk
-        generateImages(colorCount + 1);
+    // Fungsi untuk membuat slide gambar produk
+    function generateProductImages(carouselId, numColors) {
+        const carouselInner = document.querySelector(`#${carouselId} .carousel-inner`);
+        if (!carouselInner) return;
 
-        // Tambahkan event listener untuk swatch warna
-        colorSwatches.forEach(swatch => {
-            swatch.addEventListener('click', () => {
-                colorSwatches.forEach(s => s.classList.remove('active'));
-                swatch.classList.add('active');
-            });
-        });
+        // Foto depan produk
+        let html = `<div class="carousel-item active">
+                        <img src="img/${carouselId}-depan.jpg" class="d-block w-100" alt="Foto Depan">
+                    </div>`;
+        
+        // Foto per warna
+        for (let i = 1; i <= numColors; i++) {
+            html += `<div class="carousel-item">
+                        <img src="img/${carouselId}-warna-${i}.jpg" class="d-block w-100" alt="Foto Warna ${i}">
+                    </div>`;
+        }
+        carouselInner.innerHTML = html;
+    }
 
-        // Tambahkan event listener untuk tombol "Pesan Sekarang"
-        const orderButton = product.querySelector('.add-to-cart');
-        orderButton.addEventListener('click', () => {
-            const selectedColor = product.querySelector('.swatch.active').dataset.color;
-            const selectedSize = product.querySelector('.size-select').value;
-            const productName = product.querySelector('.card-title').textContent;
+    // Generate foto untuk setiap produk
+    products.forEach(product => {
+        generateProductImages(product.id, product.colors);
+    });
 
-            // Membangun pesan otomatis
-            const message = `Hai kak, saya mau order *${productName}* dengan detail berikut:%0A%0A- Ukuran: ${selectedSize}%0A- Warna: ${selectedColor}%0A%0ATerima kasih.`;
+    // Fungsi untuk membuat link WhatsApp
+    function createWhatsAppLink(productName, color, size) {
+        const phoneNumber = '6287815884094';
+        const message = `Halo kak, saya tertarik dengan ${productName} warna ${color} ukuran ${size}.`;
+        return `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    }
 
-            // Nomor WhatsApp Anda (ganti dengan nomor Anda)
-            const phoneNumber = '6287815884094'; 
-
-            // URL untuk membuka WhatsApp dengan pesan otomatis
-            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-
-            // Buka tab baru atau jendela untuk WhatsApp
-            window.open(whatsappUrl, '_blank');
+    // Tambahkan event listener untuk semua tombol "Pesan Sekarang"
+    document.querySelectorAll('.pesan-sekarang').forEach(button => {
+        button.addEventListener('click', function() {
+            const card = this.closest('.card');
+            const productName = this.getAttribute('data-produk');
+            const selectedColor = card.querySelector('select[name="warna"]').value;
+            const selectedSize = card.querySelector('select[name="ukuran"]').value;
+            
+            const waLink = createWhatsAppLink(productName, selectedColor, selectedSize);
+            window.open(waLink, '_blank');
         });
     });
 });
