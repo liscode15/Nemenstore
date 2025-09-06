@@ -3,128 +3,330 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nemenstore - Toko Pakaian Minimalis</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>Nemenstore</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header class="bg-white py-3 shadow-sm fixed-top">
-        <div class="container d-flex justify-content-between align-items-center">
-            <a class="navbar-brand fw-bold text-dark" href="#">Nemenstore</a>
-            <nav class="nav">
-                <a class="nav-link text-secondary" href="#">Beranda</a>
-                <a class="nav-link text-secondary" href="#">Produk</a>
-                <a class="nav-link text-secondary" href="#">Tentang</a>
-                <a class="nav-link text-secondary" href="#">Kontak</a>
-            </nav>
-        </div>
+
+    <header class="bg-dark text-white text-center py-3">
+        <h1>Nemenstore</h1>
     </header>
 
-    <main class="container mt-5 pt-5">
+    <main class="container my-5">
+        
+        <h2 class="mb-4">Pakaian Pria</h2>
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+            
             <div class="col">
-                <div class="card h-100 shadow-sm product-card" data-product-id="cargo-panjang" data-colors="5">
-                    <div class="card-img-top image-gallery" style="height: 350px;">
-                        </div>
-                    <div class="card-body text-center">
-                        <h5 class="card-title fw-bold">Celana Cargo Panjang</h5>
-                        <p class="card-text text-primary fw-bold">Rp 150.000</p>
-                        <div class="d-flex justify-content-center align-items-center mb-3">
-                            <label class="me-2">Warna:</label>
-                            <div class="d-flex gap-2 swatches">
-                                <div class="swatch rounded-circle border border-2 active" data-color="black"></div>
-                                <div class="swatch rounded-circle border border-2" data-color="khaki"></div>
-                                <div class="swatch rounded-circle border border-2" data-color="navy"></div>
-                                <div class="swatch rounded-circle border border-2" data-color="olive"></div>
-                                <div class="swatch rounded-circle border border-2" data-color="grey"></div>
+                <div class="card h-100">
+                    <div id="carouselCargoPanjang" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
                             </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselCargoPanjang" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselCargoPanjang" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Celana Cargo Panjang</h5>
+                        <div class="harga">
+                            <span class="normal text-decoration-line-through text-muted me-2">Rp 250.000</span>
+                            <span class="diskon fw-bold text-danger fs-5">Rp 199.000</span>
                         </div>
-                        <div class="mb-3">
-                            <label for="size-cargo-panjang" class="me-2">Ukuran:</label>
-                            <select id="size-cargo-panjang" class="form-select d-inline-block w-auto size-select">
-                                <option>28</option>
-                                <option>30</option>
-                                <option>32</option>
-                                <option>34</option>
-                                <option>36</option>
-                                <option>38</option>
-                            </select>
-                        </div>
-                        <button class="btn btn-primary w-100 add-to-cart">Pesan Sekarang</button>
+                        <form class="mt-3">
+                            <div class="mb-3">
+                                <label class="form-label">Warna:</label>
+                                <select class="form-select" name="warna">
+                                    <option value="Hitam">Hitam</option>
+                                    <option value="Abu-abu">Abu-abu</option>
+                                    <option value="Krem">Cream</option>
+                                    <option value="Hijau Army">Hijau Army</option>
+                                    <option value="Biru Navy">Mocca</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Ukuran:</label>
+                                <select class="form-select" name="ukuran">
+                                    <option value="S">27/28</option>
+                                    <option value="M">29/30</option>
+                                    <option value="L">31/32</option>
+                                    <option value="XL">33/34</option>
+                                    <option value="XXL">35/36</option>
+                                    <option value="XXXL">37/38</option>
+                                </select>
+                            </div>
+                            <button type="button" class="btn btn-success w-100 pesan-sekarang" 
+                                data-produk="Celana Cargo Panjang">Pesan Sekarang</button>
+                        </form>
                     </div>
                 </div>
             </div>
 
             <div class="col">
-                <div class="card h-100 shadow-sm product-card" data-product-id="chinos-panjang" data-colors="5">
-                    <div class="card-img-top image-gallery" style="height: 350px;"></div>
-                    <div class="card-body text-center">
-                        <h5 class="card-title fw-bold">Celana Chinos Panjang</h5>
-                        <p class="card-text text-primary fw-bold">Rp 160.000</p>
-                        <div class="d-flex justify-content-center align-items-center mb-3">
-                            <label class="me-2">Warna:</label>
-                            <div class="d-flex gap-2 swatches">
-                                <div class="swatch rounded-circle border border-2 active" data-color="black"></div>
-                                <div class="swatch rounded-circle border border-2" data-color="khaki"></div>
-                                <div class="swatch rounded-circle border border-2" data-color="navy"></div>
-                                <div class="swatch rounded-circle border border-2" data-color="olive"></div>
-                                <div class="swatch rounded-circle border border-2" data-color="grey"></div>
+                <div class="card h-100">
+                    <div id="carouselCargoPendek" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
                             </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselCargoPendek" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselCargoPendek" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Celana Cargo Pendek</h5>
+                        <div class="harga">
+                            <span class="normal text-decoration-line-through text-muted me-2">Rp 190.000</span>
+                            <span class="diskon fw-bold text-danger fs-5">Rp 150.000</span>
                         </div>
-                        <div class="mb-3">
-                            <label for="size-chinos-panjang" class="me-2">Ukuran:</label>
-                            <select id="size-chinos-panjang" class="form-select d-inline-block w-auto size-select">
-                                <option>28</option>
-                                <option>30</option>
-                                <option>32</option>
-                                <option>34</option>
-                                <option>36</option>
-                                <option>38</option>
-                            </select>
-                        </div>
-                        <button class="btn btn-primary w-100 add-to-cart">Pesan Sekarang</button>
+                        <form class="mt-3">
+                            <div class="mb-3">
+                                <label class="form-label">Warna:</label>
+                                <select class="form-select" name="warna">
+                                    <option value="Hitam">Hitam</option>
+                                    <option value="Abu-abu">Abu-abu</option>
+                                    <option value="Krem">Cream</option>
+                                    <option value="Hijau Army">Hijau Army</option>
+                                    <option value="Biru Navy">Mocca</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Ukuran:</label>
+                                <select class="form-select" name="ukuran">
+                                    <option value="S">27/28</option>
+                                    <option value="M">29/30</option>
+                                    <option value="L">31/32</option>
+                                    <option value="XL">33/34</option>
+                                    <option value="XXL">35/36</option>
+                                    <option value="XXXL">37/38</option>
+                                </select>
+                            </div>
+                            <button type="button" class="btn btn-success w-100 pesan-sekarang" 
+                                data-produk="Celana Cargo Pendek">Pesan Sekarang</button>
+                        </form>
                     </div>
                 </div>
             </div>
 
             <div class="col">
-                <div class="card h-100 shadow-sm product-card" data-product-id="ankle" data-colors="4">
-                    <div class="card-img-top image-gallery" style="height: 350px;"></div>
-                    <div class="card-body text-center">
-                        <h5 class="card-title fw-bold">Celana Ankle</h5>
-                        <p class="card-text text-primary fw-bold">Rp 140.000</p>
-                        <div class="d-flex justify-content-center align-items-center mb-3">
-                            <label class="me-2">Warna:</label>
-                            <div class="d-flex gap-2 swatches">
-                                <div class="swatch rounded-circle border border-2 active" data-color="black"></div>
-                                <div class="swatch rounded-circle border border-2" data-color="khaki"></div>
-                                <div class="swatch rounded-circle border border-2" data-color="navy"></div>
-                                <div class="swatch rounded-circle border border-2" data-color="olive"></div>
+                <div class="card h-100">
+                    <div id="carouselChinosPanjang" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
                             </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselChinosPanjang" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselChinosPanjang" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Celana Chinos Panjang</h5>
+                        <div class="harga">
+                            <span class="normal text-decoration-line-through text-muted me-2">Rp 220.000</span>
+                            <span class="diskon fw-bold text-danger fs-5">Rp 180.000</span>
                         </div>
-                        <div class="mb-3">
-                            <label for="size-ankle" class="me-2">Ukuran:</label>
-                            <select id="size-ankle" class="form-select d-inline-block w-auto size-select">
-                                <option>28</option>
-                                <option>30</option>
-                                <option>32</option>
-                                <option>34</option>
-                                <option>36</option>
-                                <option>38</option>
-                            </select>
-                        </div>
-                        <button class="btn btn-primary w-100 add-to-cart">Pesan Sekarang</button>
+                        <form class="mt-3">
+                            <div class="mb-3">
+                                <label class="form-label">Warna:</label>
+                                <select class="form-select" name="warna">
+                                    <option value="Hitam">Hitam</option>
+                                    <option value="Coklat">Cream</option>
+                                    <option value="Krem">Mocca</option>
+                                    <option value="Abu-abu">Abu-abu</option>
+                                    <option value="Hijau">Hijau Army</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Ukuran:</label>
+                                <select class="form-select" name="ukuran">
+                                    <option value="S">27/28</option>
+                                    <option value="M">29/30</option>
+                                    <option value="L">31/32</option>
+                                    <option value="XL">33/34</option>
+                                    <option value="XXL">35/36</option>
+                                    <option value="XXXL">37/38</option>
+                                </select>
+                            </div>
+                            <button type="button" class="btn btn-success w-100 pesan-sekarang" 
+                                data-produk="Celana Chinos Panjang">Pesan Sekarang</button>
+                        </form>
                     </div>
                 </div>
             </div>
+
+            <div class="col">
+                <div class="card h-100">
+                    <div id="carouselChinosPendek" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselChinosPendek" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselChinosPendek" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Celana Chinos Pendek</h5>
+                        <div class="harga">
+                            <span class="normal text-decoration-line-through text-muted me-2">Rp 180.000</span>
+                            <span class="diskon fw-bold text-danger fs-5">Rp 140.000</span>
+                        </div>
+                        <form class="mt-3">
+                            <div class="mb-3">
+                                <label class="form-label">Warna:</label>
+                                <select class="form-select" name="warna">
+                                    <option value="Hitam">Hitam</option>
+                                    <option value="Coklat">Cream</option>
+                                    <option value="Krem">Mocca</option>
+                                    <option value="Abu-abu">Abu-abu</option>
+                                    <option value="Hijau">Hijau Army</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Ukuran:</label>
+                                <select class="form-select" name="ukuran">
+                                    <option value="S">27/28</option>
+                                    <option value="M">29/30</option>
+                                    <option value="L">31/32</option>
+                                    <option value="XL">33/34</option>
+                                    <option value="XXL">35/36</option>
+                                    <option value="XXXL">37/38</option>
+                                </select>
+                            </div>
+                            <button type="button" class="btn btn-success w-100 pesan-sekarang" 
+                                data-produk="Celana Chinos Pendek">Pesan Sekarang</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card h-100">
+                    <div id="carouselAnkle" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselAnkle" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselAnkle" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Celana Ankle</h5>
+                        <div class="harga">
+                            <span class="normal text-decoration-line-through text-muted me-2">Rp 210.000</span>
+                            <span class="diskon fw-bold text-danger fs-5">Rp 175.000</span>
+                        </div>
+                        <form class="mt-3">
+                            <div class="mb-3">
+                                <label class="form-label">Warna:</label>
+                                <select class="form-select" name="warna">
+                                    <option value="Hitam">Hitam</option>
+                                    <option value="Krem">Abu Muda</option>
+                                    <option value="Abu-abu">Abu Tua</option>
+                                    <option value="Biru Navy">Biru Navy</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Ukuran:</label>
+                                <select class="form-select" name="ukuran">
+                                    <option value="S">27/28</option>
+                                    <option value="M">29/30</option>
+                                    <option value="L">31/32</option>
+                                    <option value="XL">33/34</option>
+                                    <option value="XXL">35/36</option>
+                                    <option value="XXXL">37/38</option>
+                                </select>
+                            </div>
+                            <button type="button" class="btn btn-success w-100 pesan-sekarang" 
+                                data-produk="Celana Ankle">Pesan Sekarang</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
         </div>
+        
+        <hr class="my-5">
+
+        <h2 class="mb-4">Pakaian Wanita</h2>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+            
+            <div class="col">
+                <div class="card h-100">
+                    <div id="carouselJudbrey" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselJudbrey" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselJudbrey" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Coming Soon</h5>
+                        <div class="harga">
+                            <span class="normal text-decoration-line-through text-muted me-2">Rp 150.000</span>
+                            <span class="diskon fw-bold text-danger fs-5">Rp 125.000</span>
+                        </div>
+                        <form class="mt-3">
+                            <div class="mb-3">
+                                <label class="form-label">Warna:</label>
+                                <select class="form-select" name="warna">
+                                    <option value="Hitam">Hitam</option>
+                                    <option value="Putih">Putih</option>
+                                    <option value="Navy">Navy</option>
+                                    <option value="Coklat">Coklat</option>
+                                    <option value="Maroon">Maroon</option>
+                                    <option value="Hijau">Hijau</option>
+                                    <option value="Lilac">Lilac</option>
+                                    <option value="Cream">Cream</option>
+                                    <option value="Abu-abu">Abu-abu</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Ukuran:</label>
+                                <select class="form-select" name="ukuran">
+                                    <option value="Standar">Standar</option>
+                                    <option value="Jumbo">Jumbo</option>
+                                </select>
+                            </div>
+                            <button type="button" class="btn btn-success w-100 pesan-sekarang" 
+                                data-produk="Celana Judbrey">Pesan Sekarang</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
     </main>
 
-    <footer class="bg-light text-center py-4 mt-5 border-top">
-        <p class="mb-0 text-secondary">&copy; 2025 Nemenstore. Hak Cipta Dilindungi.</p>
+    <footer class="bg-dark text-white text-center py-3 mt-5">
+        <p>&copy; 2024 Nemenstore. Hak Cipta Dilindungi.</p>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
